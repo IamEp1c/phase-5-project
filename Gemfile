@@ -48,3 +48,17 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.13"
+
+{
+  "name": "example-project",
+  "description": "Build scripts for Heroku",
+  "engines": {
+    "node": ">= 14"
+  },
+  "scripts": {
+    "build": "npm install --prefix client && npm run build --prefix client",
+    "clean": "rm -rf public",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run clean && npm run build && npm run deploy"
+  }
+}
