@@ -1,7 +1,7 @@
 class CoffeesController < ApplicationController
 
     def index 
-        coffees = Coffee.all 
+        coffees = Coffee.order_by_price
         render json: coffees
     end
     

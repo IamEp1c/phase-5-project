@@ -2,6 +2,15 @@
   text-align: center;
 }
 
+.coffeecontainer {
+  width: 25%;
+
+}
+
+img {
+  width: 100%;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +45,5 @@
     transform: rotate(360deg);
   }
 }
+
+

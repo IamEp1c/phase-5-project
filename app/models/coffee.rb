@@ -7,4 +7,9 @@ class Coffee < ApplicationRecord
     def highest_review
         self.reviews.order(:rating).last
     end
+
+    def self.order_by_price
+        self.order(price: :DESC)
+    end
+
 end
