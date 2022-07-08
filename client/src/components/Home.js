@@ -1,20 +1,26 @@
 import {  useEffect, useState } from "react"; 
 import CoffeeItem from "./CoffeeItem";
 import Cart from "./Cart";
+import { setCart } from "./features/cart";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-const Home = ({coffees, user}) => {
+const Home = () => {
+
+const coffees = useSelector(state => state.coffee.value)
+const user = useSelector(state => state.user.value)
+const cart = useSelector(state => state.cart.value)
 
 const renderedCoffees = coffees.map(coffee =>{
         return <CoffeeItem coffee={coffee} key={coffee.id} handleCart={handleCart}/>
     })
 
-
-const [cart, setCart] = useState([])
-
+const dispatch = useDispatch()
 
 
 function handleCart(coffee){
-    setCart([...cart, coffee])
+    dispatch(setCart([...cart, coffee]))
     
 }
 
@@ -29,8 +35,6 @@ cart.forEach(item => {
 
 const formattedCartv2 = Object.values(formattedCart)
 
-console.log("look here")
-console.log(formattedCartv2)
 
 useEffect(() => {
     fetch("/cart", {
@@ -56,7 +60,7 @@ useEffect(() => {
 
 
     if(!user){
-        return <></>
+        return <Navigate replace to='/'/>
     }
 
 

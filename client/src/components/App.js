@@ -1,66 +1,68 @@
 import React from "react";
 import { useState, useEffect } from "react";
-// import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, Link, useNavigate} from 'react-router-dom'
 import Home from "./Home";
-import LoginPage from "../LoginPage";
+import LoginPage from "./LoginPage";
 import Reviews from "./Reviews";
+import LandingPage from "./LandingPage";
+import ErrorPage from "./ErrorPage";
+import { useDispatch } from "react-redux";
+import { setCoffees } from "./features/coffee.js"
+import { setCart } from "./features/cart";
+import { login } from "./features/user";
+
 
 
 function App() {
-
-  const [user, setUser] = useState(false)
-
-  const [coffees, setCoffees] = useState([])
-
-
+const dispatch = useDispatch()
 
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => setUser(user));
+        response.json().then((user) => dispatch(login(user)));
       }
     });
     fetch("/cart").then(resp => resp.json())
     .then(data => {
+      console.log(data)
+      dispatch(setCart (data.cart))
       
     })
   }, []);
 
-
-
   useEffect(() => {
-      fetch("coffees") // because i have proxy i don't need full https
+      fetch("/coffees") // because i have proxy i don't need full https
       .then(resp => resp.json())
       .then(data => {
-          setCoffees(data)
+          dispatch(setCoffees (data)) 
       })
   }, [])
 
 
-  // const navigate = useNavigate()
+//   // const navigate = useNavigate()
 
-  function handleLogOut(){
-    fetch("/logout", {
-      method: "DELETE"
-    })
-    .then(resp => resp.json())
-    setUser(false)
-    // navigate("/")
-}
+//   function handleLogOut(){
+//     fetch("/logout", {
+//       method: "DELETE"
+//     })
+//     .then(resp => resp.json())
+//     setUser(false)
+//     // navigate("/")
+// }
 
-// make a component for reviews [done]
-// fetch reviews [done]
-// render reviews in the right place 
+// // make a component for reviews [done]
+// // fetch reviews [done]
+// // render reviews in the right place 
 
-const [reviews, setReviews] = useState([])
+// const [reviews, setReviews] = useState([])
 
-useEffect(() => {
-  fetch("reviews")
-  .then(resp => resp.json())
-  .then(data => {
-    setReviews(data)
-  })
-}, [])
+// useEffect(() => {
+//   fetch("reviews")
+//   .then(resp => resp.json())
+//   .then(data => {
+//     setReviews(data)
+//   })
+// }, [])
 
 
 
@@ -76,17 +78,25 @@ useEffect(() => {
 //     setCartItems([...cartItems, {...product, qty: 1}])
 //   }
 // }
-  
+{/* <h2>welcome to Waqas's Cafe</h2>
+{/* {renderedCoffees} */}
+// { user? <button onClick={handleLogOut}>Logout</button> : 
+// <LoginPage user={user} setUser={setUser}/>}
+// <Home coffees={coffees} user={user} reviews={reviews} />
+// <Reviews reviews={reviews}/> */}
 
   return (
-    <div className="App">
-      <h2>welcome to Waqas's Cafe</h2>
-        {/* {renderedCoffees} */}
-       { user? <button onClick={handleLogOut}>Logout</button> : 
-       <LoginPage user={user} setUser={setUser}/>}
-       <Home coffees={coffees} user={user} reviews={reviews} />
-       {/* <Reviews reviews={reviews}/> */}
-    </div>
+  <div>
+     <Router>
+      <Routes>
+        <Route exact path={"/"} element={<LandingPage/>} />
+        <Route exact path={"/Login"} element={<LoginPage/>} />
+        <Route exact path={"/Home"} element={<Home />} />
+        <Route exact path={"/Reviews"} element={<Reviews />} />
+        <Route exact path={"*"} element={<ErrorPage/>} />
+        </Routes>
+    </Router>
+  </div>
   );
 }
 

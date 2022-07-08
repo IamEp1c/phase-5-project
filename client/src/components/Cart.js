@@ -2,8 +2,6 @@ import { useState } from "react"
 import CartItem from "./CartItem"
 
 const Cart = ({cart, setCart}) => {
-    console.log(cart)
-
 
     const [isShown, setIsShown] = useState(false)
 

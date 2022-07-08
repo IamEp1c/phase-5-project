@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { login } from "./features/user";
 
 
 const LoginPage = ({user, setUser}) => {
-
-    // const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -20,11 +22,8 @@ const LoginPage = ({user, setUser}) => {
     })
       .then((r) => r.json())
       .then((user) => {
-        console.log(user)
-        if(user.id){
-          setUser(user);
-        //   navigate("/Home");
-        } 
+          dispatch(login(user))
+          navigate("/Home");
       });
     }
 
@@ -34,11 +33,13 @@ const LoginPage = ({user, setUser}) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
         type="text"
+        placeholder="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />

@@ -17,7 +17,8 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create(user_params)
-        render json: user
+        session[:user_id] = user.id
+        render json: user, status: :ok
     end
 
 
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params
-        params.permit(:username, :password) 
+        params.permit(:username, :password, :email) 
     end
 
     def invalid errorobj
