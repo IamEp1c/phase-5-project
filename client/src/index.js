@@ -8,12 +8,15 @@ import { Provider } from 'react-redux';
 import userReducer from "./components/features/user.js"
 import coffeeReducer from "./components/features/coffee.js"
 import cartReducer from "./components/features/cart.js"
+import reviewsReducer from "./components/features/reviews.js"
+
 
 const store = configureStore({
   reducer: {
     user: userReducer,
     coffee: coffeeReducer,
     cart: cartReducer,
+    reviews: reviewsReducer,
 
   }, 
 })

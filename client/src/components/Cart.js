@@ -1,16 +1,18 @@
 import { useState } from "react"
 import CartItem from "./CartItem"
+// when importing a function to a component , you put curly brackets on functions 
+import { deleteItemFromCart } from "./features/cart.js"
+import { useDispatch } from "react-redux";
 
 const Cart = ({cart, setCart}) => {
+
+    const dispatch = useDispatch()
 
     const [isShown, setIsShown] = useState(false)
 
 
     function handleDelete(id){
-        console.log(id)
-        const filteredCarts = cart.filter(item => item.id !== id)
-        setCart(filteredCarts)
-
+        dispatch(deleteItemFromCart(id))
     }
 
     const renderCart = cart.map(cartItem => {

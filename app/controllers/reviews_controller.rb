@@ -10,6 +10,11 @@ class ReviewsController < ApplicationController
         reviews = Review.all 
         render json: reviews
     end
+    # custom controller
+    def review_for_specific_coffee
+        review = Review.where(coffee_id: params[:id])
+        render json: review
+    end
 
     def create 
         review = Review.create(review_params)
@@ -40,7 +45,7 @@ class ReviewsController < ApplicationController
     end
 
     def not_found
-        render json: {error: "User not found"}, status: 404
+        render json: []
     end
 
     # def authorize

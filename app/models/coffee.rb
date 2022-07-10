@@ -12,4 +12,6 @@ class Coffee < ApplicationRecord
         self.order(price: :DESC)
     end
 
+    
+
 end

@@ -4,4 +4,5 @@ class Review < ApplicationRecord
 
 
     validates :content, length: { maximum: 500 }
+    # validates :rating, length: { maximum: 5 }
 end

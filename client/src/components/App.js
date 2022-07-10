@@ -19,9 +19,10 @@ const dispatch = useDispatch()
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
-        response.json().then((user) => dispatch(login(user)));
+       response.json().then((user) => dispatch(login(user)));
       }
     });
+
     fetch("/cart").then(resp => resp.json())
     .then(data => {
       console.log(data)
@@ -64,26 +65,6 @@ const dispatch = useDispatch()
 //   })
 // }, [])
 
-
-
-
-// const addToCart = (product) => {
-//   const exist = cartItems.find(element => element.id === product.id)
-//   if(exist){
-//     setCartItems(cartItems.map(x => x.id === product.id ? {...exist, qty: exist.qty +1 } : x 
-      
-      
-//       ))
-//   } else {
-//     setCartItems([...cartItems, {...product, qty: 1}])
-//   }
-// }
-{/* <h2>welcome to Waqas's Cafe</h2>
-{/* {renderedCoffees} */}
-// { user? <button onClick={handleLogOut}>Logout</button> : 
-// <LoginPage user={user} setUser={setUser}/>}
-// <Home coffees={coffees} user={user} reviews={reviews} />
-// <Reviews reviews={reviews}/> */}
 
   return (
   <div>

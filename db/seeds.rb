@@ -11,26 +11,26 @@ user2 = User.create(username:"Zdrake", password:"password")
 
 puts "seeding coffees"
 coffee1 = Coffee.create(
-    name: "Death Wish",
-    price: 20,
-    image: "https://cdn.shopify.com/s/files/1/0271/7209/products/BlueBuried-170.jpg?v=1654097913",
-    description: "world's most potent coffee, drink with caution"
+    name: "Cappuccino",
+    price: 7,
+    image: "https://www.acouplecooks.com/wp-content/uploads/2020/10/how-to-make-cappuccino-005.jpg",
+    description: "A warm delicious cappuchino, to ease the burdens you are facing"
 
 )
 
 coffee2 = Coffee.create(
-    name: "Kicking Horse Coffee",
-    price: 10,
-    image: "https://images.heb.com/is/image/HEBGrocery/003066067",
-    description: "a complete balance of flavor"
+    name: "Mocha",
+    price: 5,
+    image: "https://www.spoonfulofflavor.com/wp-content/uploads/2021/11/mocha-latte-recipe.jpg",
+    description: "a coffee & chocolatey sensation"
 
 )
 
 coffee3 = Coffee.create(
-    name: "Starbucks veranda blend",
-    price: 22,
-    image: "https://www.oppictures.com/SINGLEIMAGES/350/163117.JPG",
-    description: "A crowd pleaser for all"
+    name: "Espresso",
+    price: 4,
+    image: "https://cloudfront-us-east-1.images.arcpublishing.com/coindesk/FYHTISENURHMTIYJF4TSJ25DJE.jpg",
+    description: "highly cocentrated & smooth, let's get to work"
 )
 
 review1 = Review.create(content: "I always buy my coffee from this website, fast & Affordable!", rating: 5, user_id: 1, coffee_id: 1)

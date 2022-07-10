@@ -10,8 +10,14 @@ export const cartSlice = createSlice({
     reducers: {
         setCart: (state, action) => {
             state.value = action.payload
+        },
+        deleteItemFromCart: (state, action) => {
+            const index = state.value.findIndex(object => {
+                return object.id === action.payload;
+              });
+              state.value = state.value.splice(index, 1)
         }
     }
 })
-export const { setCart } = cartSlice.actions
+export const { setCart, deleteItemFromCart } = cartSlice.actions
 export default cartSlice.reducer; 
