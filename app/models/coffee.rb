@@ -4,7 +4,7 @@ class Coffee < ApplicationRecord
     has_many :users, through: :orders
     has_many :reviewers, through: :reviews, source: :user_id
 
-    def highest_review
+    def self.highest_review
         self.reviews.order(:rating).last
     end
 

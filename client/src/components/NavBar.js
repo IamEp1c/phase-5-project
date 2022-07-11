@@ -1,19 +1,28 @@
 import { useNavigate } from "react-router-dom";
 
-
-
-function NavBar({user, setUser}) {
-
-    function handleLogOut(){
-        setUser(null)
-        navigate("/")
-    }
-
+const NavBar = () => {
+    
 const navigate = useNavigate()
+//     function handleLogOut(){
+//         setUser(null)
+//         navigate("/")
+//     }
+
+function navigateAboutUs(){
+    navigate("AboutUs")
+}
+
+function navigateToHome(){
+    navigate("/Home")
+}
 
     return (
         <div className="navbar">
-            <h1>Welcome to Waqas's Fine Coffee</h1>
+            <div className="navbarbuttons">
+            <button onClick={navigateToHome}>Home</button>
+           <button onClick={navigateAboutUs}>About us</button>
+           <button>Leave a review!</button>
+           </div>
         </div>
 
     )

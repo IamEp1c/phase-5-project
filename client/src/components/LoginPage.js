@@ -31,7 +31,7 @@ const LoginPage = ({user, setUser}) => {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="loginpage" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="username"

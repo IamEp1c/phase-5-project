@@ -6,10 +6,13 @@ import LoginPage from "./LoginPage";
 import Reviews from "./Reviews";
 import LandingPage from "./LandingPage";
 import ErrorPage from "./ErrorPage";
+import AboutUs from "./AboutUs";
+import Shopping from "./Shopping";
 import { useDispatch } from "react-redux";
 import { setCoffees } from "./features/coffee.js"
 import { setCart } from "./features/cart";
 import { login } from "./features/user";
+
 
 
 
@@ -40,17 +43,6 @@ const dispatch = useDispatch()
   }, [])
 
 
-//   // const navigate = useNavigate()
-
-//   function handleLogOut(){
-//     fetch("/logout", {
-//       method: "DELETE"
-//     })
-//     .then(resp => resp.json())
-//     setUser(false)
-//     // navigate("/")
-// }
-
 // // make a component for reviews [done]
 // // fetch reviews [done]
 // // render reviews in the right place 
@@ -72,8 +64,12 @@ const dispatch = useDispatch()
       <Routes>
         <Route exact path={"/"} element={<LandingPage/>} />
         <Route exact path={"/Login"} element={<LoginPage/>} />
-        <Route exact path={"/Home"} element={<Home />} />
-        <Route exact path={"/Reviews"} element={<Reviews />} />
+        <Route exact path={"/Home"} element={<Home />} >
+          <Route exact index element={<Shopping />} />
+          <Route exact path={"Reviews"} element={<Reviews />} />
+          <Route exact path={"AboutUs"} element={<AboutUs />} />
+        </Route>
+
         <Route exact path={"*"} element={<ErrorPage/>} />
         </Routes>
     </Router>

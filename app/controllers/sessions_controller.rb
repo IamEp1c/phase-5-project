@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  #custom controller <3 :) 
   
   def create
     user = User.find_by(username: params[:username])

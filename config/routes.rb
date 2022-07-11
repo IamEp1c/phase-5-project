@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get "/cart",  to: "sessions#showCart"
   patch '/cart',  to: "sessions#update"
   get "/coffees/:id/reviews", to: "reviews#review_for_specific_coffee"
+
 end

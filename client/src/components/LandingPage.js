@@ -1,78 +1,3 @@
-// import React from 'react'
-// import { useState, useEffect} from 'react';
-// import Signup from './Signup';
-
-// function LandingPage() {
-
-
-//     const [user, setUser] = useState(false)
-
-//     const [coffees, setCoffees] = useState([])
-  
-  
-  
-//     useEffect(() => {
-//       fetch("/me").then((response) => {
-//         if (response.ok) {
-//           response.json().then((user) => setUser(user));
-//         }
-//       });
-//       fetch("/cart").then(resp => resp.json())
-//       .then(data => {
-        
-//       })
-//     }, []);
-  
-  
-  
-//     useEffect(() => {
-//         fetch("coffees") // because i have proxy i don't need full https
-//         .then(resp => resp.json())
-//         .then(data => {
-//             setCoffees(data)
-//         })
-//     }, [])
-  
-  
-//     // const navigate = useNavigate()
-  
-//     function handleLogOut(){
-//       fetch("/logout", {
-//         method: "DELETE"
-//       })
-//       .then(resp => resp.json())
-//       setUser(false)
-//       // navigate("/")
-//   }
-  
-//   // make a component for reviews [done]
-//   // fetch reviews [done]
-//   // render reviews in the right place 
-  
-//   const [reviews, setReviews] = useState([])
-  
-//   useEffect(() => {
-//     fetch("reviews")
-//     .then(resp => resp.json())
-//     .then(data => {
-//       setReviews(data)
-//     })
-//   }, [])
-
-
-
-//   return (
-//     <>
-//     { user? <button onClick={handleLogOut}>Logout</button> : 
-//         <LoginPage user={user} setUser={setUser}/>}
-//         <h1>Welcome to Waqas's Cafe</h1>
-//         <Signup />
-//     </>
-//   )
-// }
-
-// export default LandingPage
-
 import React from 'react'
 import Signup from './Signup'
 import LoginPage from '../LoginPage'
@@ -83,7 +8,7 @@ function LandingPage() {
   <div className="LandingPage">
     <h1>Welcome to Waqas's Cafe!</h1>
 
-    <div>If you are a new, please register with a username, email and password</div>
+    <div>If you are a new user, please register with a username, email and password</div>
   
     <Signup />
 

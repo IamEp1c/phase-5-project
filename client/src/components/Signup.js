@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { login } from './features/user'
 
 
 function Signup() {
@@ -33,6 +34,7 @@ function Signup() {
         })
         .then(resp => resp)
         if(resp.ok){
+            resp.json().then(user => dispatch(login(user)))
             navigate("/home")
         }
     }

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
-    before_action :authorize
+    # before_action :authorize
 
     def index 
         users = User.all 
