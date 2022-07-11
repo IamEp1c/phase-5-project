@@ -1,14 +1,9 @@
-import React from "react";
-const Reviews = ({reviews}) => {
+import React from 'react'
 
-    const renderReviews = reviews.map(review => {
-        return <p>{review.content}</p>
-    })
-    return (
-        <div>
-            {renderReviews}
-        </div>
-    )
+const Reviews = () => {
+  return (
+    <div>Reviews brah</div>
+  )
 }
 
-export default Reviews; 
+export default Reviews

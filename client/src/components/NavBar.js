@@ -16,12 +16,16 @@ function navigateToHome(){
     navigate("/Home")
 }
 
+function navigateToReviews(){
+    navigate("Reviews")
+}
+
     return (
         <div className="navbar">
             <div className="navbarbuttons">
             <button onClick={navigateToHome}>Home</button>
            <button onClick={navigateAboutUs}>About us</button>
-           <button>Leave a review!</button>
+           <button onClick={navigateToReviews}>Leave a review!</button>
            </div>
         </div>
 
