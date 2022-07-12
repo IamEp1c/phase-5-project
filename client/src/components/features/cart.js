@@ -15,7 +15,10 @@ export const cartSlice = createSlice({
             const index = state.value.findIndex(object => {
                 return object.id === action.payload;
               });
-              state.value = state.value.splice(index, 1)
+              const newState = state.value
+            newState.splice(index, 1)
+            state.value = newState
+
         }
     }
 })
