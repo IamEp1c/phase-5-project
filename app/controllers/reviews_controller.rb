@@ -18,7 +18,7 @@ class ReviewsController < ApplicationController
 
     def create 
         review = Review.create(review_params)
-        render json :review
+        render json: review
     end
 
     def update
@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
     private 
 
     def review_params  
-        params.permit(:content, :rating, :user_id, :coffee_id)
+        params.permit(:content, :rating, :user_id)
     end
 
     def invalid errorobj

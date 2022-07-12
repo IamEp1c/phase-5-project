@@ -29,11 +29,13 @@ const user = useSelector(state => state.user.value)
 
 
     return (
+    <div id="renderHome">
         <>
         <h1 className="title">Welcome to Waqas's Cafe!</h1>
         <NavBar />
         <Outlet />
         </>
+    </div>
     )
 }
 

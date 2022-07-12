@@ -43,20 +43,6 @@ const dispatch = useDispatch()
   }, [])
 
 
-// // make a component for reviews [done]
-// // fetch reviews [done]
-// // render reviews in the right place 
-
-// const [reviews, setReviews] = useState([])
-
-// useEffect(() => {
-//   fetch("reviews")
-//   .then(resp => resp.json())
-//   .then(data => {
-//     setReviews(data)
-//   })
-// }, [])
-
 
   return (
   <div>

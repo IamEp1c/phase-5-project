@@ -42,9 +42,10 @@ function Signup() {
   return (
     <div>
         <h1>Signup</h1>
-
+        <div id="insideSignup">
         <form onSubmit={onSubmit}>
             <input
+                id='username'
                 type="text"
                 placeholder="username"
                 value={username}
@@ -62,9 +63,9 @@ function Signup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-
             <button type="submit">Signup</button>
         </form>
+        </div>
 
 
 

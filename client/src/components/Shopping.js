@@ -95,11 +95,9 @@ const Shopping = () => {
 
   return (
    <>
-        { user? <button id="logoutbutton" onClick={handleLogout}>Logout</button> : <Navigate replace to='/Login'/>}
+        { user? <button id="logoutbutton" className="button-35" onClick={handleLogout}>Logout</button> : <Navigate replace to='/Login'/>}
         <div className="renderedcoffees">
         {renderedCoffees}
-
-        {reviews.length > 0 ? <Reviews reviews={reviews}/> : null }
         
         <Cart cart={formattedCartv2} setCart={setCart}/>
         </div>
