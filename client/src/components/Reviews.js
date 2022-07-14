@@ -64,8 +64,6 @@ const Reviews = () => {
       }
 
     function handleDelete(id){
-      console.log(id)
-      console.log("hello")
       fetch(`/reviews/${id}`, {
         method: "DELETE",
         headers: {

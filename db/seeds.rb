@@ -41,6 +41,22 @@ coffee4 = Coffee.create(
     description: "A double espresso, for those still searching for a double rainbow"
 )
 
+coffee5 = Coffee.create(
+    name: "Americano",
+    price: 6,
+    image: "https://i0.wp.com/www.yesmooretea.com/wp-content/uploads/2021/11/Iced-Americano-7.jpg?fit=1125%2C1688&ssl=1", 
+    description: "American Pride in a cup"
+)
+
+coffee6 = Coffee.create(
+    name: "Macchiato",
+    price: 6,
+    image: "https://www.nespresso.com/ncp/res/uploads/recipes/nespresso-recipes-Latte-Macchiato.jpg", 
+    description: "steamed milk goodness"
+)
+
+
+
 review1 = Review.create(content: "I always buy my coffee from this website, fast & Affordable!", rating: 5, user_id: 1, coffee_id: 1)
 
 

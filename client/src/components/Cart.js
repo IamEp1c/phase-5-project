@@ -20,7 +20,7 @@ const Cart = ({cart, setCart}) => {
     })
     return (
         <div className="cart">
-            <button onClick={() => setIsShown(!isShown)}>Cart Items</button>
+            <button className="button-35" onClick={() => setIsShown(!isShown)}>Cart Items</button>
             {
                 isShown ? renderCart : ""
             }
