@@ -10,7 +10,8 @@ function LandingPage() {
       <h1>Welcome to Waqas's Cafe!</h1>
 
       <div>If you are a new user, please register with a username, email and password</div>
-    
+
+      <h1>Signup</h1>
       <Signup />
 
       <br></br>    

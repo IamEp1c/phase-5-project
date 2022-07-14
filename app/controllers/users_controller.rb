@@ -1,4 +1,6 @@
+
 class UsersController < ApplicationController
+
     rescue_from ActiveRecord::RecordInvalid, with: :invalid
 
     rescue_from ActiveRecord::RecordNotFound, with: :not_found
@@ -16,9 +18,12 @@ class UsersController < ApplicationController
     end
 
     def create 
-        user = User.create(user_params)
+        # byebug
+        if (user = User.create!(user_params))
+        UserMailer.with(user: user).welcome_email.deliver_later
         session[:user_id] = user.id
         render json: user, status: :ok
+       end
     end
 
 

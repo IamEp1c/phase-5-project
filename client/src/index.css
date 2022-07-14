@@ -2,6 +2,10 @@
   border: 2px solid black;
 } */
 
+#loginTitle{
+  color: black;
+}
+
 #renderHome{
   background-color: orange;
 }
@@ -48,6 +52,37 @@
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
 }
 
+#signUpButton {
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: transparent 0 0 0 3px,rgba(18, 18, 18, .1) 0 6px 20px;
+  box-sizing: border-box;
+  color: #121212;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 auto;
+  font-family: Inter,sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 1;
+  margin: 0;
+  outline: none;
+  padding: 1rem 1.2rem;
+  text-align: center;
+  text-decoration: none;
+  transition: box-shadow .2s,-webkit-box-shadow .2s;
+  white-space: nowrap;
+  border: 0;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+#signUpButton{
+  box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
 
 #homeButton{
   margin-right: 45px;
@@ -66,10 +101,13 @@
   margin-top: 20px;
   display: block;
   border: 2px solid black;
+  background-color: white;
 }
 
 #logoutbutton{
   background-color: white;
+  top: 100%;
+  position: relative;
 }
 .cart {
   width: 25%;
@@ -83,6 +121,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: orange;
 }
 
 code {
@@ -103,11 +142,12 @@ code {
 }
 
 img {
-  display: flex;
-  width: 100%;
+  margin-top: 50px;
+  display: inline-block;
+  width: 60%;
   height: 50%;
-  margin-right: 100px;   /* Horizontal Space */
-  margin-bottom: 30px;  /* Vertical Space */
+  margin-right: auto;/* Horizontal Space */
+  /* Vertical Space */
   border: 2px solid red;
 
 }
@@ -123,17 +163,22 @@ img {
   border: 3px solid darkgreen;
   padding: 50px;
   display: block;
-  margin-top: 200px;
+  /* margin-top: 200px; */
   /* margin-bottom: 300px; */
-  margin-left: auto;
+  /* margin-left: auto;
   margin-right: auto;
-  bottom:auto;
+  bottom:auto; */
+  margin: 15rem auto; 
+  background-color: white;
+
+  
 }
 
 
 .informationInLandingPageBox {
   text-align: center;
 }
+
 
 
 
@@ -145,13 +190,31 @@ img {
   margin-left: auto;
   margin-right: auto;
   bottom:auto;
+  background-color: white;
 }
 
 #insideSignup {
-  display: flex;
+  /* display: flex; */
   width: 100px;
-  margin-right: 200px;
+  margin: 0 auto; 
+ 
+  /* justify-content: center; */
+  /* display: block; */
+
 }
+
+
+
+#test {
+  margin: 0 auto;
+  /* width: 50px; */
+}
+
+/* #signUpForm {
+  display: block;
+  margin: 0 auto;
+  
+} */
 
 
 #reviewForm {
@@ -159,12 +222,31 @@ img {
   margin-top: 50px;
 }
 
+.whiteBox{
+  width: 50%;
+  border: 3px solid darkgreen;
+  padding: 50px;
+  display: block;
+  /* margin-top: 200px; */
+  /* margin-bottom: 300px; */
+  /* margin-left: auto;
+  margin-right: auto;
+  bottom:auto; */
+  margin: 5rem auto; 
+  background-color: white;
+}
+
 #reviewContainer {
   text-align: center;
   margin-top: 50px;
+  background-color: white;
 }
 
 #loginForLoginPage {
   text-align: center;
   margin: 100px;
+}
+
+.pTagForDescription {
+  height: 30px;
 }

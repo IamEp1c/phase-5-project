@@ -12,7 +12,11 @@ import { render } from 'react-dom'
 
 const Reviews = () => {
 
+    const [ratingEdit, setRatingEdit] = useState("")
+
     const dispatch = useDispatch()
+
+    const [newReview, setNewReview] = useState("")
 
     const [enterReview, setEnterReview] = useState("")
 
@@ -24,6 +28,8 @@ const Reviews = () => {
     const user = useSelector(state => state.user.value)
 
 
+
+
     useEffect(() => {
         fetch("/reviews")
         .then(resp => resp.json())
@@ -33,9 +39,42 @@ const Reviews = () => {
     }, [update])
 
     const reviews = useSelector(state => state.reviews.value)
+
+    function handleUpdateReviews(id){
+      console.log(id)
+      fetch(`/reviews/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({
+          content: enterReview,
+          rating: ratingEdit
+
+        }),
+        headers: {
+          'Content-type': 'application/json'
+        },
+      })
+        .then(resp => {
+        setEnterReview("")
+        setRatingEdit("")
+      })
+      .then(handleUpdate())
+    }
+
+    function handleDelete(id){
+      console.log(id)
+      console.log("hello")
+      fetch(`/reviews/${id}`, {
+        method: "DELETE",
+        headers: {
+            'Content-Type': 'application/json'
+        },
+      })
+      .then(handleUpdate())
+    }
+
     
     const renderReviews = reviews.map(review => {
-        return <ReviewContainer review={review}/>
+        return <ReviewContainer review={review} handleUpdateReviews={handleUpdateReviews} enterReview={enterReview} setEnterReview={setEnterReview} ratingEdit={ratingEdit} setRatingEdit={setRatingEdit} handleDelete={handleDelete}/>
     })
 
 
@@ -43,7 +82,7 @@ const Reviews = () => {
     function handleSubmitReview(e){
       e.preventDefault()
       const obj = {
-        content: enterReview,
+        content: newReview,
         rating: rating,
         user_id: user.id
 
@@ -65,11 +104,14 @@ const Reviews = () => {
       triggerUpdate(prev => !prev)
     }
 
+    
+
+
   return (
     <>
       <form id='reviewForm' onSubmit={handleSubmitReview}>
         <div>Enter a review here!</div>
-        <input type="text" value={enterReview} onChange={(e) => setEnterReview(e.target.value)}/>
+        <input type="text" value={newReview} onChange={(e) => setNewReview(e.target.value)}/>
 
         <select id="rating" value={rating} onChange={(e) => setRating(e.target.value)}>
           <option>rating</option>
@@ -82,8 +124,10 @@ const Reviews = () => {
         <button>Submit</button>
       
         </form> 
+        <div className="whiteBox">
         {renderReviews}
-        </>
+        </div>
+    </>
 
 
 

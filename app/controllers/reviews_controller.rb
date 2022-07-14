@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     # before_action :authorize
 
     def index 
-        reviews = Review.all 
+        reviews = Review.order(id: :ASC)
         render json: reviews
     end
     # custom controller
@@ -22,8 +22,8 @@ class ReviewsController < ApplicationController
     end
 
     def update
-       review = Review.find_by!(id: params[:id])
-       review.update!(review_params)
+       review = Review.find(params[:id])
+       review.update!(content: params[:content], rating: params[:rating])
        render json: review
     end
 

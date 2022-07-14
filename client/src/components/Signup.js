@@ -40,10 +40,10 @@ function Signup() {
     }
 
   return (
-    <div>
-        <h1>Signup</h1>
-        <div id="insideSignup">
-        <form onSubmit={onSubmit}>
+<div>
+        {/* <h1>Signup</h1> */}
+
+        <form id="signUpForm" onSubmit={onSubmit}>
             <input
                 id='username'
                 type="text"
@@ -51,25 +51,27 @@ function Signup() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
             />
+            <br />
+
             <input
                 type="text"
                 placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
             />
+            <br />
             <input
                 type="text"
                 placeholder="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
             />
-            <button type="submit">Signup</button>
+            <br />
+            <br />
+            <button id="signUpButton" type="submit">Signup</button>
+            <br />
         </form>
-        </div>
-
-
-
-    </div>
+</div>
 
   )
 

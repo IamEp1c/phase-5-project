@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   # get "/coffees/:id/reviews", to: "reviews#review_for_specific_coffee"
   get "/reviews", to: "reviews#index"
   post "/reviews", to: "reviews#create"
+  patch "/reviews/:id", to: "reviews#update"
+  delete "/reviews/:id", to: "reviews#destroy"
 end

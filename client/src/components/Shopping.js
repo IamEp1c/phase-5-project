@@ -22,17 +22,17 @@ const Shopping = () => {
     
     // console.log(reviews)
     
-    const displayReview = (id) => {
-        // console.log(id)
-        fetch(`/coffees/${id}/reviews`)
-        .then(resp => resp.json())
-        .then(data => {
-           dispatch(setReviews(data))
-        })
-    }
+    // const displayReview = (id) => {
+    //     // console.log(id)
+    //     fetch(`/coffees/${id}/reviews`)
+    //     .then(resp => resp.json())
+    //     .then(data => {
+    //        dispatch(setReviews(data))
+    //     })
+    // }
     
     const renderedCoffees = coffees.map(coffee =>{
-            return <CoffeeItem coffee={coffee} key={coffee.id} handleCart={handleCart} displayReview={displayReview}/>
+            return <CoffeeItem coffee={coffee} key={coffee.id} handleCart={handleCart} />
         })
     
     
@@ -71,7 +71,6 @@ const Shopping = () => {
     useEffect(() => {
         fetch("/cart").then(resp => resp.json())
         .then(data => {
-            console.log(data.cart)
             setCart(data.cart)
         })
       }, []);
@@ -92,6 +91,7 @@ const Shopping = () => {
         navigate("/")
     }
 
+ 
 
   return (
    <>

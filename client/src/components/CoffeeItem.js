@@ -13,11 +13,13 @@ const {name, description, image, id, price} = coffee
 
     return (
         <div className="coffeecontainer">
-            <img onClick={() => displayReview(id)} src={image}/>
+            <img src={image}/>
             <h1>{name}</h1>
-            <p>{description}</p>
+            <div>
+            <p className="pTagForDescription">{description}</p>
             <p>${price}</p>
             <button onClick={() => handleCart(coffee)}>Add To Cart</button>
+            </div>
         </div>
         
         

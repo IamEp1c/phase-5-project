@@ -33,6 +33,7 @@ const LoginPage = ({user, setUser}) => {
   return (
     <div id="loginForLoginPage">
     <form className="loginpage" onSubmit={handleSubmit}>
+    <h1 id="loginTitle">Login Here</h1>
       <input
         type="text"
         placeholder="username"
