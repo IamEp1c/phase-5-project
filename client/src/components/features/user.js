@@ -6,13 +6,13 @@ const initialState = {}
 export const userSlice = createSlice({
 
     name: "user",
-    initialState: {value: initialState },  
+    initialState: {value: {username: "", password: "", id: "" }},  
     reducers: {
         login: (state, action) => {
             state.value = action.payload
         },
         logout: (state) => {
-            state.value = initialState
+            state.value = {username: "", password: "", email: "", id: "" }
         }
     }
 })

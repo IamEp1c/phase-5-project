@@ -7,6 +7,7 @@ const ReviewContainer = ({review, handleUpdateReviews, enterReview, setEnterRevi
   const {content, rating, user_id, id} = review
 
   const user = useSelector(state => state.user.value)
+  console.log(user.id)
 
   const reviews = useSelector(state => state.reviews.value)
 
@@ -49,8 +50,13 @@ const ReviewContainer = ({review, handleUpdateReviews, enterReview, setEnterRevi
         : ""
       }
    
-     <p>{content} | Rating: {rating} { user.id === user_id ?
+     <p>{content} | Rating: {rating}
+     {/* <br /> */}
+     {/* { user.id }, { user_id } */}
+
+      { user.id === user_id ?
     <>
+    <br />
         <button onClick={() => handleToggleEdit(content, rating)}>&#9999;&#65039;</button> <button onClick={() => handleDelete(id)}>&#10060;</button>
     </>
       : ""

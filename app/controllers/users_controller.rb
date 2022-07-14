@@ -18,12 +18,12 @@ class UsersController < ApplicationController
     end
 
     def create 
-        # byebug
-        if (user = User.create!(user_params))
-        UserMailer.with(user: user).welcome_email.deliver_later
-        session[:user_id] = user.id
-        render json: user, status: :ok
-       end
+        user = User.create!(user_params)
+        if (user)
+            UserMailer.with(user: user).welcome_email.deliver_later
+            session[:user_id] = user.id
+            render json: user, status: :ok
+        end
     end
 
 
@@ -43,6 +43,7 @@ class UsersController < ApplicationController
     end
 
     def authorize
-        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+        @current_user = User.find_by(id: session[:user_id])
+        render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
     end
 end

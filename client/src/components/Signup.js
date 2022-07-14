@@ -35,7 +35,7 @@ function Signup() {
         .then(resp => resp)
         if(resp.ok){
             resp.json().then(user => dispatch(login(user)))
-            navigate("/home")
+            navigate("/login")
         }
     }
 
@@ -54,7 +54,7 @@ function Signup() {
             <br />
 
             <input
-                type="text"
+                type="password"
                 placeholder="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -16,7 +16,7 @@ const Cart = ({cart, setCart}) => {
     }
 
     const renderCart = cart.map(cartItem => {
-        return <CartItem cartItem={cartItem} handleDelete={handleDelete}/>
+        return <CartItem cartItem={cartItem} handleDelete={handleDelete} key={cartItem.id}/>
     })
     return (
         <div className="cart">

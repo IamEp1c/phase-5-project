@@ -13,8 +13,8 @@ const {name, description, image, id, price} = coffee
 
     return (
         <div className="coffeecontainer">
-            <img src={image}/>
-            <h1>{name}</h1>
+            <img className="coffeeImage" src={image}/>
+            <h1 className="pTagForDescription">{name}</h1>
             <div>
             <p className="pTagForDescription">{description}</p>
             <p>${price}</p>

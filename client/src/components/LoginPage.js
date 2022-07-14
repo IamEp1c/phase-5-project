@@ -22,9 +22,13 @@ const LoginPage = ({user, setUser}) => {
     })
       .then((r) => r.json())
       .then((user) => {
-          // console.log(user)
-          dispatch(login(user))
-          navigate("/Home");
+          if(user.hasOwnProperty("error")){
+            console.log("Incorrect username or password")
+          } else {
+            dispatch(login(user))
+            navigate("/Home");
+            
+          }
       });
     }
 
@@ -41,7 +45,7 @@ const LoginPage = ({user, setUser}) => {
         onChange={(e) => setUsername(e.target.value)}
       />
       <input
-        type="text"
+        type="password"
         placeholder="password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}

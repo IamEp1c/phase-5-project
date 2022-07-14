@@ -31,18 +31,21 @@ const Reviews = () => {
 
 
     useEffect(() => {
-        fetch("/reviews")
+       const fetchReviews = async () => {
+        let resp = await fetch("/reviews")
         .then(resp => resp.json())
-        .then(data => {
-            dispatch(setReviews(data))
-        })
+        .then(data => data)
+        dispatch(setReviews([...resp]))
+       } 
+       fetchReviews()
     }, [update])
+
+
 
     const reviews = useSelector(state => state.reviews.value)
 
-    function handleUpdateReviews(id){
-      console.log(id)
-      fetch(`/reviews/${id}`, {
+ const handleUpdateReviews = async (id) => {
+      let resp = await fetch(`/reviews/${id}`, {
         method: 'PATCH',
         body: JSON.stringify({
           content: enterReview,
@@ -53,12 +56,12 @@ const Reviews = () => {
           'Content-type': 'application/json'
         },
       })
-        .then(resp => {
+        .then(resp => resp)
+
         setEnterReview("")
         setRatingEdit("")
-      })
-      .then(handleUpdate())
-    }
+        handleUpdate()
+      }
 
     function handleDelete(id){
       console.log(id)
@@ -74,12 +77,12 @@ const Reviews = () => {
 
     
     const renderReviews = reviews.map(review => {
-        return <ReviewContainer review={review} handleUpdateReviews={handleUpdateReviews} enterReview={enterReview} setEnterReview={setEnterReview} ratingEdit={ratingEdit} setRatingEdit={setRatingEdit} handleDelete={handleDelete}/>
+        return <ReviewContainer review={review} handleUpdateReviews={handleUpdateReviews} enterReview={enterReview} setEnterReview={setEnterReview} ratingEdit={ratingEdit} setRatingEdit={setRatingEdit} handleDelete={handleDelete} key={review.id}/>
     })
 
 
 
-    function handleSubmitReview(e){
+   const handleSubmitReview = async (e) => {
       e.preventDefault()
       const obj = {
         content: newReview,
@@ -87,7 +90,7 @@ const Reviews = () => {
         user_id: user.id
 
       }
-      fetch("/reviews", {
+      await fetch("/reviews", {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -95,8 +98,7 @@ const Reviews = () => {
       },
       body: JSON.stringify(obj)
 
-      })
-      .then(handleUpdate())
+      }).then(handleUpdate())
     }
 
 

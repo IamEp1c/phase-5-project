@@ -20,16 +20,6 @@ const Shopping = () => {
     const cart = useSelector(state => state.cart.value)
     const reviews = useSelector(state => state.reviews.value)
     
-    // console.log(reviews)
-    
-    // const displayReview = (id) => {
-    //     // console.log(id)
-    //     fetch(`/coffees/${id}/reviews`)
-    //     .then(resp => resp.json())
-    //     .then(data => {
-    //        dispatch(setReviews(data))
-    //     })
-    // }
     
     const renderedCoffees = coffees.map(coffee =>{
             return <CoffeeItem coffee={coffee} key={coffee.id} handleCart={handleCart} />
@@ -77,7 +67,6 @@ const Shopping = () => {
     
     const navigate = useNavigate()
     
-    // this navigate below is a component
         if(!user){
             return <Navigate replace to='/'/>
         }
@@ -86,7 +75,7 @@ const Shopping = () => {
         fetch("/logout", {
             method: "DELETE"
         })
-        .then(resp => resp.json())
+        // .then(resp => resp.json())
         dispatch(logout())
         navigate("/")
     }
@@ -96,9 +85,11 @@ const Shopping = () => {
   return (
    <>
         { user? <button id="logoutbutton" className="button-35" onClick={handleLogout}>Logout</button> : <Navigate replace to='/Login'/>}
+        <div className="displayFlex">
         <div className="renderedcoffees">
         {renderedCoffees}
         
+        </div>
         <Cart cart={formattedCartv2} setCart={setCart}/>
         </div>
     </>

@@ -16,15 +16,22 @@ import { login } from "./features/user";
 
 
 
+
 function App() {
 const dispatch = useDispatch()
 
+// const navigate = useNavigate()
+
   useEffect(() => {
-    fetch("/me").then((response) => {
-      if (response.ok) {
-       response.json().then((user) => dispatch(login(user)));
-      }
-    });
+    // auto login
+    // fetch("/me").then((response) => {
+    //   if (response.ok) {
+    //    response.json().then((user) => {
+    //     dispatch(login(user))
+    //     navigate("/home")
+    //   })
+    //   };
+    // });
 
     fetch("/cart").then(resp => resp.json())
     .then(data => {

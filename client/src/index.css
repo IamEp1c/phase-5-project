@@ -97,10 +97,16 @@
 }
 
 #AboutUs {
-  text-align: center;
-  margin-top: 20px;
+  width: 50%;
+  border: 3px solid darkgreen;
+  padding: 50px;
   display: block;
-  border: 2px solid black;
+  /* margin-top: 200px; */
+  /* margin-bottom: 300px; */
+  /* margin-left: auto;
+  margin-right: auto;
+  bottom:auto; */
+  margin: 5rem auto; 
   background-color: white;
 }
 
@@ -110,8 +116,21 @@
   position: relative;
 }
 .cart {
+
   width: 25%;
-  height: 15%
+  /* border: 3px solid white; */
+  justify-content: center;
+  text-align: center;
+}
+
+.CartItem {
+  width: 100%;
+  justify-content: center;
+}
+
+.cartImage {
+  width: 100px;
+  height: 80px;
 }
 
 body {
@@ -132,13 +151,23 @@ code {
 
 
 .renderedcoffees {
+  /* display: flex;
+  flex-direction: row; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 74%;
+}
+
+.displayFlex {
   display: flex;
 }
 
 .coffeecontainer {
-  width: 25%;
+  width: 357px;
   text-align: center;
-
+  border: 3px solid white;
+  margin: 20px;
+  padding-bottom: 20px;
 }
 
 img {
@@ -150,6 +179,16 @@ img {
   /* Vertical Space */
   border: 2px solid red;
 
+}
+
+.coffeeImage {
+  margin-top: 50px;
+  display: inline-block;
+  width: 220px;
+  height: 285px;
+  margin-right: auto;/* Horizontal Space */
+  /* Vertical Space */
+  border: 2px solid red;
 }
 
 /* landing page */

@@ -9,7 +9,8 @@ user1 = User.create(username:"WaqasA", password:"password")
 user2 = User.create(username:"Zdrake", password:"password")
 
 
-puts "seeding coffees"
+puts "seeding coffees" 
+
 coffee1 = Coffee.create(
     name: "Cappuccino",
     price: 7,
@@ -33,11 +34,11 @@ coffee3 = Coffee.create(
     description: "highly cocentrated & smooth, let's get to work"
 )
 
-coffee4 = Coffee.crete(
-    name: "Double Espresso"
-    price: 5
-    image: "https://images.squarespace-cdn.com/content/v1/5d69595b33f26e000101e09b/1568302716127-696JG38QB8X4N49TBFXT/feature-jun1118.jpg?format=1000w"
-    description: 
+coffee4 = Coffee.create(
+    name: "Double Espresso",
+    price: 5,
+    image: "https://images.squarespace-cdn.com/content/v1/5d69595b33f26e000101e09b/1568302716127-696JG38QB8X4N49TBFXT/feature-jun1118.jpg?format=1000w", 
+    description: "A double espresso, for those still searching for a double rainbow"
 )
 
 review1 = Review.create(content: "I always buy my coffee from this website, fast & Affordable!", rating: 5, user_id: 1, coffee_id: 1)
