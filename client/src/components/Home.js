@@ -20,6 +20,8 @@ const Home = () => {
 const user = useSelector(state => state.user.value)
 
 
+console.log("Youve reached home")
+
 
 // this navigate below is a component
     if(!user){

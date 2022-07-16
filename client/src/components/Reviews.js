@@ -10,6 +10,8 @@ import { render } from 'react-dom'
 
 const Reviews = () => {
 
+  console.log("Youve reached Reviews")
+
     const [ratingEdit, setRatingEdit] = useState("")
 
     const dispatch = useDispatch()

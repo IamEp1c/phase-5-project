@@ -6,7 +6,9 @@ import { login } from './features/user'
 
 function Signup() {
 
+    console.log("Youve reached Signup")
 
+    
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")

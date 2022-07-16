@@ -13,6 +13,10 @@ import { setReviews } from "./features/reviews.js"
 import NavBar from "./NavBar";
 
 const Shopping = () => {
+
+    console.log("youve reached Shopping")
+
+    
     const dispatch = useDispatch()
 
     const coffees = useSelector(state => state.coffee.value)

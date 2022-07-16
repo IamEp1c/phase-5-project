@@ -5,6 +5,10 @@ import { login } from "./features/user";
 
 
 const LoginPage = ({user, setUser}) => {
+
+  console.log("Youve reached LoginPage")
+
+
   const dispatch = useDispatch()
   const navigate = useNavigate()
 

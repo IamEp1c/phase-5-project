@@ -2,6 +2,8 @@ import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
     
+    console.log("Youve reached NavBar")
+
 const navigate = useNavigate()
 //     function handleLogOut(){
 //         setUser(null)

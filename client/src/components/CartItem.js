@@ -5,7 +5,7 @@ const CartItem = ({cartItem, handleDelete}) => {
 
 const {name, price, image, id, quantity} = cartItem
 
-
+    
     return (
         <div className="CartItem">
             <img className="cartImage" src={image} />

@@ -6,6 +6,8 @@ import { useDispatch } from "react-redux";
 
 const Cart = ({cart, setCart}) => {
 
+    console.log("You've reached cart")
+
     const dispatch = useDispatch()
 
     const [isShown, setIsShown] = useState(false)

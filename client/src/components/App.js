@@ -64,7 +64,6 @@ const dispatch = useDispatch()
           <Route exact index element={<Shopping />} />
           <Route exact path={"Reviews"} element={<Reviews />} />
           <Route exact path={"AboutUs"} element={<AboutUs />} />
-          <Route exact path={"Reviews"} element={<Reviews />} />
         </Route>
 
         <Route exact path={"*"} element={<ErrorPage/>} />

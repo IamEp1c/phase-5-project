@@ -4,6 +4,10 @@ import LoginPage from '../LoginPage'
 import {Link} from 'react-router-dom'
 
 function LandingPage() {
+
+  console.log("Youve reached LandingPage")
+
+
   return (
   <div className="LandingPage">
     <div className='informationInLandingPageBox'>
