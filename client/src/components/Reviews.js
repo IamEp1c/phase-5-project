@@ -8,8 +8,6 @@ import { render } from 'react-dom'
 
 
 
-
-
 const Reviews = () => {
 
     const [ratingEdit, setRatingEdit] = useState("")
@@ -26,8 +24,6 @@ const Reviews = () => {
 
 
     const user = useSelector(state => state.user.value)
-
-
 
 
     useEffect(() => {

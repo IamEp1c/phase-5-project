@@ -7,7 +7,7 @@ const ReviewContainer = ({review, handleUpdateReviews, enterReview, setEnterRevi
   const {content, rating, user_id, id} = review
 
   const user = useSelector(state => state.user.value)
-  console.log(user.id)
+  
 
   const reviews = useSelector(state => state.reviews.value)
 
