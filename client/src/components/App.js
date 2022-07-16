@@ -32,12 +32,16 @@ const dispatch = useDispatch()
     //   })
     //   };
     // });
+    const getCart = async () => {
 
-    fetch("/cart").then(resp => resp.json())
-    .then(data => {
-      dispatch(setCart (data.cart))
-      
-    })
+    
+      await fetch("/cart").then(resp => resp.json())
+      .then(data => {
+        dispatch(setCart (data.cart))
+        
+      })
+    }
+    getCart()
   }, []);
 
   useEffect(() => {
