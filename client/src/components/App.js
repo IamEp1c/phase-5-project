@@ -62,8 +62,8 @@ const dispatch = useDispatch()
         <Route exact path={"/Login"} element={<LoginPage/>} />
         <Route exact path={"/Home"} element={<Home />} >
           <Route exact index element={<Shopping />} />
-          <Route exact path={"Reviews"} element={<Reviews />} />
-          <Route exact path={"AboutUs"} element={<AboutUs />} />
+          <Route exact path={"/Reviews"} element={<Reviews />} />
+          <Route exact path={"/AboutUs"} element={<AboutUs />} />
         </Route>
 
         <Route exact path={"*"} element={<ErrorPage/>} />
